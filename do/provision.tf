@@ -13,3 +13,7 @@ resource "digitalocean_kubernetes_cluster" "DOcluster" {
     node_count = 2
   }
 }
+
+output "cluster-id" {
+  value = "${digitalocean_kubernetes_cluster.DOcluster.id}"
+}
