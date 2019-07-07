@@ -1,5 +1,5 @@
 provider "digitalocean" {
-  token = "${TF_VAR_do_token}"
+  token = ${'var.TF_VAR_do_token'}
 }
 
 resource "digitalocean_kubernetes_cluster" "do_ny1_k8_1" {
