@@ -2,7 +2,7 @@ provider "digitalocean" {
   token = "${var.do_token}"
 }
 
-resource "digitalocean_kubernetes_cluster" "${var.do_cluster}" {
+resource "digitalocean_kubernetes_cluster" "digital_ocean_cluster_monte" {
   name    = "${var.do_cluster}"
   region  = "${var.do_region}"
   version = "1.14.2-do.0"
