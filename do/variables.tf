@@ -1,7 +1,3 @@
-variable "do_token" {
-  description = "Digitalocean token"
-}
-
 variable "do_region" {
   default     = "nyc1"
 }
