@@ -9,7 +9,7 @@ resource "digitalocean_kubernetes_cluster" "DOcluster" {
 
   node_pool {
     name       = "worker-pool"
-    size       = "s-2vcpu-2gb"
+    size       = "s-1vcpu-1gb"
     node_count = 2
   }
 }
