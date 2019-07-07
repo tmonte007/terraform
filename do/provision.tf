@@ -3,8 +3,8 @@ provider "digitalocean" {
 }
 
 resource "digitalocean_kubernetes_cluster" "DOcluster" {
-  name    = "${var.do_cluster}"
-  region  = "${var.do_region}"
+  name    = "DONY1K8S"
+  region  = "nyc1"
   version = "1.14.2-do.0"
 
   node_pool {
