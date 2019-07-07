@@ -1,9 +1,9 @@
 provider "digitalocean" {
-  token = ${'var.TF_VAR_do_token'}
+  token = "${var.do_token}"
 }
 
-resource "digitalocean_kubernetes_cluster" "do_ny1_k8_1" {
-  name    = "do_ny1_k8_1"
+resource "digitalocean_kubernetes_cluster" "${var.do_cluster}" {
+  name    = "${var.do_cluster}"
   region  = "${var.do_region}"
   version = "1.14.2-do.0"
 
