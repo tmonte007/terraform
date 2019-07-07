@@ -3,7 +3,7 @@ provider "digitalocean" {
 }
 
 resource "digitalocean_kubernetes_cluster" "DOcluster" {
-  name    = "DONY1K8S"
+  name    = "do-nyc3-pool"
   region  = "nyc3"
   version = "1.14.3-do.0"
 
