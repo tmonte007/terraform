@@ -9,6 +9,7 @@ resource "digitalocean_droplet" "web" {
   region = "nyc3"
   size   = "s-1vcpu-2gb"
   tags   = ["docker","nyc3"]
+  ssh_keys = ["${var.ssh_fingerprint}"
 }
 
 
