@@ -58,6 +58,11 @@ resource "digitalocean_firewall" "web" {
   }
 }
 
+data "digitalocean_droplet" "example" {
+  name = "web1"
+}
+
+
 resource "digitalocean_domain" "default" {
   name       = "monte.cloud"
   ip_address = "${digitalocean_droplet.web1.ipv4_address}"
