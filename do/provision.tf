@@ -2,6 +2,7 @@ provider "digitalocean" {
   token = "${var.do_token}"
 }
 
+
 resource "digitalocean_droplet" "web" {
   image  = "ubuntu-18-04-x64"
   name   = "web1"
@@ -9,6 +10,7 @@ resource "digitalocean_droplet" "web" {
   size   = "s-1vcpu-2gb"
   tags   = ["docker","nyc3"]
 }
+
 
 resource "digitalocean_firewall" "web" {
   name = "docker-fw"
@@ -55,3 +57,19 @@ resource "digitalocean_firewall" "web" {
       destination_addresses   = ["0.0.0.0/0", "::/0"]
   }
 }
+
+resource "digitalocean_droplet" "foobar" {
+  name   = "example"
+  size   = "512mb"
+  image  = "centos-7-x64"
+  region = "nyc3"
+}
+
+resource "digitalocean_project" "playground" {
+  name        = "do_monte"
+  description = "Digital Ocean monte.cloud project"
+  purpose     = "Web Applications"
+  environment = "Development"
+  resources   = ["${digitalocean_droplet.web1.urn}"]
+}
+
