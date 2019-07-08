@@ -2,18 +2,13 @@ provider "digitalocean" {
   token = "${var.do_token}"
 }
 
-resource "digitalocean_kubernetes_cluster" "DOcluster" {
-  name    = "do-nyc3-pool"
-  region  = "nyc3"
-  version = "1.14.3-do.0"
-
-  node_pool {
-    name       = "worker-pool"
-    size       = "s-1vcpu-2gb"
-    node_count = 2
-  }
+resource "digitalocean_droplet" "web" {
+  image  = "ubuntu-18-04-x64"
+  name   = "web1"
+  region = "nyc3"
+  size   = "s-1vcpu-2gb"
 }
 
-output "cluster-id" {
-  value = "${digitalocean_kubernetes_cluster.DOcluster.id}"
+output "ip" {
+    value = "${digitalocean_droplet.web.ipv4_address}"
 }
