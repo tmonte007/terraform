@@ -9,7 +9,3 @@ resource "digitalocean_droplet" "web" {
   size   = "s-1vcpu-2gb"
   tags   = ["docker","nyc3"]
 }
-
-output "ip" {
-    value = "${digitalocean_droplet.web1.ipv4_address}"
-}
