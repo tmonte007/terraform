@@ -11,5 +11,5 @@ resource "digitalocean_droplet" "do-docker" {
 }
 
 output "ip" {
-    value = "${digitalocean_droplet.web.ipv4_address}"
+    value = "${digitalocean_droplet.do-docker1.ipv4_address}"
 }
