@@ -11,7 +11,7 @@ resource "digitalocean_droplet" "web" {
 }
 
 resource "digitalocean_firewall" "web" {
-  name = "only-22-80-and-443"
+  name = "docker-fw"
 
   droplet_ids = ["${digitalocean_droplet.web.id}"]
 
