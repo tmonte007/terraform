@@ -2,12 +2,12 @@ provider "digitalocean" {
   token = "${var.do_token}"
 }
 
-resource "digitalocean_droplet" "web" {
+resource "digitalocean_droplet" "do-docker" {
   image  = "ubuntu-18-04-x64"
-  name   = "web1"
+  name   = "do-docker1"
   region = "nyc3"
   size   = "s-1vcpu-2gb"
-  tags   = "web"
+  tags   = ["docker","nyc3"]
 }
 
 output "ip" {
