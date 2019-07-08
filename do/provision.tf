@@ -2,14 +2,14 @@ provider "digitalocean" {
   token = "${var.do_token}"
 }
 
-resource "digitalocean_droplet" "do-docker" {
+resource "digitalocean_droplet" "web" {
   image  = "ubuntu-18-04-x64"
-  name   = "do-docker1"
+  name   = "web1"
   region = "nyc3"
   size   = "s-1vcpu-2gb"
   tags   = ["docker","nyc3"]
 }
 
 output "ip" {
-    value = "${digitalocean_droplet.do-docker1.ipv4_address}"
+    value = "${digitalocean_droplet.web1.ipv4_address}"
 }
