@@ -58,18 +58,7 @@ resource "digitalocean_firewall" "web" {
   }
 }
 
-resource "digitalocean_droplet" "foobar" {
-  name   = "example"
-  size   = "512mb"
-  image  = "centos-7-x64"
-  region = "nyc3"
+resource "digitalocean_domain" "default" {
+  name       = "monte.cloud"
+  ip_address = "${digitalocean_droplet.web1.ipv4_address}"
 }
-
-resource "digitalocean_project" "playground" {
-  name        = "do_monte"
-  description = "Digital Ocean monte.cloud project"
-  purpose     = "Web Applications"
-  environment = "Development"
-  resources   = ["${digitalocean_droplet.web1.urn}"]
-}
-
